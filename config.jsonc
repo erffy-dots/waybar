@@ -20,6 +20,7 @@
     "mpris",
     "battery",
     "custom/updates",
+    // "bluetooth",
     "custom/brightness",
     "wireplumber",
     "clock",
@@ -85,6 +86,15 @@
     "tooltip-format-wifi": "SSID ・ {essid}\nGateway ・ {gwaddr}\nIP ・ {ipaddr}\nIF ・ {ifname}\nFrequency ・ {frequency}GHz\nStrength ・ {signalStrength}% ({signaldBm}dBm)\n  {bandwidthDownBytes} ・   {bandwidthUpBytes}",
     "min-length": 10,
     "max-length": 20
+  },
+  "bluetooth": {
+    "format": "",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "Status ・ {status}\nController ・ {controller_alias} [{controller_address}]\n\nConnections ・ {num_connections}",
+    "tooltip-format-connected": "🔧 {controller_alias} [{controller_address}]\n\n📱 Connected device(s):\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "• {device_alias} [{device_address}]",
+    "tooltip-format-enumerate-connected-battery": "• {device_alias} [{device_address}] - 🔋 {device_battery_percentage}%"
   },
   "mpris": {
     "format": "{status_icon}  {title}",
