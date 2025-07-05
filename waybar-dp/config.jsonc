@@ -7,67 +7,16 @@
   "margin-left": 6,
   "margin-top": 3,
   "modules-left": [
-    "cpu",
-    "custom/gpu",
-    "custom/memory",
-    "network",
-    "custom/ping"
-  ],
-  "modules-center": [
     "hyprland/workspaces"
   ],
+  "modules-center": [],
   "modules-right": [
-    "tray",
-    "mpris",
-    "battery",
-    "custom/updates",
-    // "bluetooth",
-    "custom/brightness",
-    "wireplumber",
-    "clock",
-    "custom/notification"
+    "custom/ping",
+    "network",
+    "custom/memory",
+    "custom/gpu",
+    "cpu"
   ],
-  "tray": {
-    "icon-size": 13,
-    "spacing": 6
-  },
-  "clock": {
-    "format": "  {:%I:%M %p ・   %m/%d/%y}",
-    "rotate": 0,
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "calendar": {
-      "mode": "month",
-      "mode-mon-col": 3,
-      "on-scroll": 1,
-      "on-click-right": "mode",
-      "format": {
-        "months": "<span color='#fab387'><b>{}</b></span>",
-        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-        "today": "<span color='#f38ba8'><b>{}</b></span>"
-      }
-    },
-    "actions": {
-      "on-click-right": "mode",
-      "on-click-forward": "tz_up",
-      "on-click-backward": "tz_down",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
-  },
-  "wireplumber": {
-    "scroll-step": 5,
-    "max-volume": 150,
-    "format": "{icon}  {volume}%",
-    "format-muted": "",
-    "format-icons": {
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    },
-    "on-click": "pavucontrol"
-  },
   "cpu": {
     "interval": 1,
     "format": "  {usage}% ・ {max_frequency}GHz",
@@ -88,51 +37,9 @@
     "min-length": 10,
     "max-length": 20
   },
-  "bluetooth": {
-    "format": "",
-    "format-connected": " {device_alias}",
-    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-    "tooltip-format": "Status ・ {status}\nController ・ {controller_alias} [{controller_address}]\n\nConnections ・ {num_connections}",
-    "tooltip-format-connected": "🔧 {controller_alias} [{controller_address}]\n\n📱 Connected device(s):\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "• {device_alias} [{device_address}]",
-    "tooltip-format-enumerate-connected-battery": "• {device_alias} [{device_address}] - 🔋 {device_battery_percentage}%"
-  },
-  "mpris": {
-    "format": "{status_icon}  {title}",
-    "format-stopped": "",
-    "tooltip-format": "Player ・ {player}\nTitle ・ {title}\nArtist ・ {artist}\nAlbum ・ {album}\n{position} ・ {length} ({status})",
-    "status-icons": {
-      "paused": "",
-      "playing": ""
-    },
-    "min-length": 10,
-    "max-length": 40
-  },
-  "custom/notification": {
-    "tooltip": false,
-    "format": "  {}",
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  },
-  "custom/brightness": {
-    "signal": 1,
-    "interval": 0,
-    "exec": "~/.config/waybar/scripts.d/brightness.sh --only 3",
-    "return-type": "json"
-  },
   "custom/ping": {
     "interval": 1,
     "exec": "~/.config/waybar/.bin/ping",
-    "return-type": "json"
-  },
-  "custom/updates": {
-    "interval": 160,
-    "escape": true,
-    "exec": "~/.config/waybar/.bin/updates",
     "return-type": "json"
   },
   "custom/memory": {
