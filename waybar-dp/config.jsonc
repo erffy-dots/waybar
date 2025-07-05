@@ -1,4 +1,5 @@
 {
+  "output": "DP-1",
   "layer": "top",
   "position": "top",
   "reload_style_on_change": true,
@@ -120,30 +121,30 @@
   "custom/brightness": {
     "signal": 1,
     "interval": 0,
-    "exec": "~/.config/waybar/scripts.d/brightness.sh",
+    "exec": "~/.config/waybar/scripts.d/brightness.sh --only 3",
     "return-type": "json"
   },
   "custom/ping": {
     "interval": 1,
-    "exec": "~/.config/waybar/bin/ping",
+    "exec": "~/.config/waybar/.bin/ping",
     "return-type": "json"
   },
   "custom/updates": {
     "interval": 160,
     "escape": true,
-    "exec": "~/.config/waybar/bin/updates",
+    "exec": "~/.config/waybar/.bin/updates",
     "return-type": "json"
   },
   "custom/memory": {
     "signal": 4,
     "interval": 0,
-    "exec": "~/.config/waybar/bin/memory",
+    "exec": "~/.config/waybar/.bin/memory",
     "return-type": "json"
   },
   "custom/gpu": {
     "signal": 5,
     "interval": 0,
-    "exec": "~/.config/waybar/bin/gpu",
+    "exec": "~/.config/waybar/.bin/gpu",
     "return-type": "json"
   }
 }

@@ -1,13 +1,23 @@
 #!/usr/bin/env bash
 
-PID=$(pgrep -x waybar)
+readonly BASE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/waybar"
 
-if [[ -n "$PID" ]]; then
-    kill "$PID"
+# Kill all running waybar instances
+pkill -x waybar
 
-    while pgrep -x waybar > /dev/null; do
-        sleep 0.1
-    done
-fi
+# Wait until all are killed
+while pgrep -x waybar > /dev/null; do
+    sleep 0.1
+done
 
-nohup waybar >/dev/null 2>&1 &
+STYLE="$BASE_CONFIG/style.css"
+
+# Define config and style paths
+HDMI_CONFIG="$BASE_CONFIG/waybar-hdmi/config.jsonc"
+DP_CONFIG="$BASE_CONFIG/waybar-dp/config.jsonc"
+
+# Launch Waybar for HDMI-A-1
+nohup waybar -c $HDMI_CONFIG -s $STYLE >/dev/null 2>&1 &
+
+# Launch Waybar for DP-1
+nohup waybar -c $DP_CONFIG -s $STYLE >/dev/null 2>&1 &
