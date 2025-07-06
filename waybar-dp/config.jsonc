@@ -7,16 +7,16 @@
   "margin-left": 6,
   "margin-top": 3,
   "modules-left": [
+    "cpu",
+    "custom/gpu",
+    "custom/memory",
+    "network",
+    "custom/ping"
+  ],
+  "modules-center": [
     "hyprland/workspaces"
   ],
-  "modules-center": [],
-  "modules-right": [
-    "custom/ping",
-    "network",
-    "custom/memory",
-    "custom/gpu",
-    "cpu"
-  ],
+  "modules-right": [],
   "cpu": {
     "interval": 1,
     "format": "  {usage}% ・ {max_frequency}GHz",

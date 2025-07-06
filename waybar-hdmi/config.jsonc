@@ -6,10 +6,10 @@
   "margin-right": 6,
   "margin-left": 6,
   "margin-top": 3,
-  "modules-left": [
+  "modules-left": [],
+  "modules-center": [
     "hyprland/workspaces"
   ],
-  "modules-center": [],
   "modules-right": [
     "tray",
     "mpris",
