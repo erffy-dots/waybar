@@ -16,42 +16,11 @@
   "modules-center": [
     "hyprland/workspaces"
   ],
-  "modules-right": [],
-  "cpu": {
-    "interval": 1,
-    "format": "  {usage}% ・ {max_frequency}GHz",
-    "min-length": 16,
-    "max-length": 20
-  },
-  "network": {
-    "interval": 1,
-    "format": "{icon}  {bandwidthTotalBytes}",
-    "format-disconnected": "",
-    "format-icons": {
-      "wifi": "",
-      "ethernet": "",
-      "linked": ""
-    },
-    "tooltip-format": "Gateway ・ {gwaddr}\nIP ・ {ipaddr}\nIF ・ {ifname}\n  {bandwidthDownBytes} ・   {bandwidthUpBytes}",
-    "tooltip-format-wifi": "SSID ・ {essid}\nGateway ・ {gwaddr}\nIP ・ {ipaddr}\nIF ・ {ifname}\nFrequency ・ {frequency}GHz\nStrength ・ {signalStrength}% ({signaldBm}dBm)\n  {bandwidthDownBytes} ・   {bandwidthUpBytes}",
-    "min-length": 10,
-    "max-length": 20
-  },
-  "custom/ping": {
-    "interval": 1,
-    "exec": "~/.config/waybar/.bin/ping",
-    "return-type": "json"
-  },
-  "custom/memory": {
-    "signal": 4,
-    "interval": 0,
-    "exec": "~/.config/waybar/.bin/memory",
-    "return-type": "json"
-  },
-  "custom/gpu": {
-    "signal": 5,
-    "interval": 0,
-    "exec": "~/.config/waybar/.bin/gpu",
-    "return-type": "json"
-  }
+  "modules-right": [
+    "wireplumber",
+    "clock"
+  ],
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ]
 }
