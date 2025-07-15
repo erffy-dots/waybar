@@ -86,13 +86,13 @@
     "return-type": "json"
   },
   "custom/memory": {
-    "signal": 4,
+    "signal": 12,
     "interval": 0,
     "exec": "~/.config/waybar/.bin/memory",
     "return-type": "json"
   },
   "custom/gpu": {
-    "signal": 5,
+    "signal": 11,
     "interval": 0,
     "exec": "~/.config/waybar/.bin/gpu",
     "return-type": "json"
@@ -120,7 +120,7 @@
     "return-type": "json"
   },
   "custom/updates": {
-    "signal": 2,
+    "signal": 10,
     "interval": 0,
     "escape": true,
     "exec": "~/.config/waybar/.bin/updates",
