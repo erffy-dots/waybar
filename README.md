@@ -3,7 +3,7 @@ My waybar configuration files
 
 ### Installation
 ```sh
-bash -c "bash <(curl -sL https://raw.githubusercontent.com/erffy-dots/waybar/main/install.sh)"
+bash -c "CONFIG_NAME=waybar CONFIG_DIR_NAME=waybar $(curl -fsSL https://raw.githubusercontent.com/erffy-dots/.generic/main/install_subconfig.sh)"
 ```
 
 ### Screenshots

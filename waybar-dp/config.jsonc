@@ -17,8 +17,14 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
+    "tray",
+    "mpris",
+    "battery",
+    // "bluetooth",
+    "custom/brightness#secondary",
     "wireplumber",
-    "clock"
+    "clock",
+    "custom/notification"
   ],
   "include": [
     "~/.config/waybar/modules.jsonc"

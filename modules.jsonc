@@ -107,14 +107,21 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
-  "custom/brightness": {
+  "custom/brightness#primary": {
     "signal": 1,
     "interval": 0,
     "exec": "~/.config/waybar/scripts.d/brightness.sh --only 2",
     "return-type": "json"
   },
+  "custom/brightness#secondary": {
+    "signal": 1,
+    "interval": 0,
+    "exec": "~/.config/waybar/scripts.d/brightness.sh --only 3",
+    "return-type": "json"
+  },
   "custom/updates": {
-    "interval": 160,
+    "signal": 2,
+    "interval": 0,
     "escape": true,
     "exec": "~/.config/waybar/.bin/updates",
     "return-type": "json"

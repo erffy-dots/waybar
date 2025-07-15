@@ -16,7 +16,7 @@
     "battery",
     "custom/updates",
     // "bluetooth",
-    "custom/brightness",
+    "custom/brightness#primary",
     "wireplumber",
     "clock",
     "custom/notification"
