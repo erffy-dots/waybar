@@ -81,7 +81,8 @@
     "max-length": 20
   },
   "custom/ping": {
-    "interval": 1,
+    "interval": 0,
+    "signal": 13,
     "exec": "~/.config/waybar/.bin/ping",
     "return-type": "json"
   },
