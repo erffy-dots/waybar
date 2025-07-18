@@ -80,23 +80,23 @@
     "min-length": 10,
     "max-length": 20
   },
-  "custom/ping": {
+  "custom/gpu": {
+    "exec": "~/.config/waybar/.bin/gpu",
+    "return-type": "json", 
     "interval": 0,
-    "signal": 13,
-    "exec": "~/.config/waybar/.bin/ping",
-    "return-type": "json"
+    "signal": 11
   },
   "custom/memory": {
-    "signal": 12,
-    "interval": 0,
     "exec": "~/.config/waybar/.bin/memory",
-    "return-type": "json"
-  },
-  "custom/gpu": {
-    "signal": 11,
+    "return-type": "json",
     "interval": 0,
-    "exec": "~/.config/waybar/.bin/gpu",
-    "return-type": "json"
+    "signal": 12
+  },
+  "custom/ping": {
+    "exec": "~/.config/waybar/.bin/ping",
+    "return-type": "json",
+    "interval": 0,
+    "signal": 13
   },
   "custom/notification": {
     "tooltip": false,

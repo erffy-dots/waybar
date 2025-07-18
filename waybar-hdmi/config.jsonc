@@ -1,4 +1,8 @@
 {
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+
   "output": "HDMI-A-1",
   "layer": "top",
   "position": "top",
@@ -20,8 +24,5 @@
     "wireplumber",
     "clock",
     "custom/notification"
-  ],
-  "include": [
-    "~/.config/waybar/modules.jsonc"
   ]
 }

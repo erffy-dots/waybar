@@ -1,4 +1,8 @@
 {
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+  
   "output": "DP-1",
   "layer": "top",
   "position": "top",
@@ -25,8 +29,5 @@
     "wireplumber",
     "clock",
     "custom/notification"
-  ],
-  "include": [
-    "~/.config/waybar/modules.jsonc"
   ]
 }
