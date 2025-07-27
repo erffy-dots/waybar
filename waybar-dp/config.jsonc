@@ -24,7 +24,7 @@
     "tray",
     "mpris",
     "battery",
-    // "bluetooth",
+    "custom/updates",
     "custom/brightness#secondary",
     "wireplumber",
     "clock",
