@@ -5,11 +5,9 @@ if ! command -v ddcutil &>/dev/null; then
   exit 1
 fi
 
-# Default to both buses 2 and 3
 displays=(2 3)
 only_bus=""
 
-# Optional: --only BUS_ID
 while [[ "$1" != "" ]]; do
   case $1 in
     --only)
@@ -20,43 +18,39 @@ while [[ "$1" != "" ]]; do
   shift
 done
 
-# If --only was passed, override displays list
 if [[ -n "$only_bus" ]]; then
   displays=("$only_bus")
 fi
 
 declare -A old_brightness
 
-# Get icon by brightness percentage
 get_icon() {
-  local percent=$1
-  if (( percent < 20 )); then echo ""
-  elif (( percent < 50 )); then echo ""
-  elif (( percent < 80 )); then echo ""
+  local p=$1
+  if (( p < 20 )); then echo ""
+  elif (( p < 50 )); then echo ""
+  elif (( p < 80 )); then echo ""
   else echo ""
   fi
 }
 
-while true; do
+while :; do
   output_text=""
   all_failed=true
 
   for bus in "${displays[@]}"; do
-    output=$(ddcutil --noconfig --sleep-multiplier=0 --bus=$bus getvcp 10 2>/dev/null)
+    ddcout=$(ddcutil --noconfig --terse --sleep-multiplier=0 --bus=$bus getvcp 10 2>/dev/null)
 
-    current=$(awk -F'=' '/current value/ {gsub(/[^0-9]/,"",$2); print $2}' <<< "$output")
-    max=$(awk -F'=' '/max value/ {gsub(/[^0-9]/,"",$3); print $3}' <<< "$output")
+    read -r _ _ _ current max <<< "$ddcout"
 
     if [[ "$current" =~ ^[0-9]+$ && "$max" =~ ^[0-9]+$ && "$max" -ne 0 ]]; then
       all_failed=false
       percent=$(( current * 100 / max ))
 
+      icon=$(get_icon "$percent")
+
       if [[ "${old_brightness[$bus]}" != "$percent" ]]; then
-        icon=$(get_icon "$percent")
         old_brightness[$bus]=$percent
         pkill -RTMIN+1 waybar
-      else
-        icon=$(get_icon "$percent")
       fi
 
       if [[ -n "$only_bus" ]]; then
@@ -67,7 +61,7 @@ while true; do
     fi
   done
 
-  if [[ "$all_failed" == true ]]; then
+  if $all_failed; then
     echo '{"text": " Error", "tooltip": "Failed to read brightness"}'
   else
     echo "{\"text\": \"${output_text% }\"}"
