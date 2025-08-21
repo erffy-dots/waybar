@@ -1,0 +1,23 @@
+{
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+
+  "output": "HDMI-A-1",
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+  "margin-right": 6,
+  "margin-left": 6,
+  "margin-top": 3,
+  "modules-left": [],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "custom/brightness#primary",
+    "wireplumber",
+    "clock",
+    "custom/notification"
+  ]
+}

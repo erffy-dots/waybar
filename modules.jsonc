@@ -1,0 +1,131 @@
+{
+  "tray": {
+    "icon-size": 12,
+    "spacing": 7
+  },
+  "clock": {
+    "format": "  {:%I:%M %p ・   %m/%d/%y}",
+    "rotate": 0,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#fab387'><b>{}</b></span>",
+        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+        "today": "<span color='#f38ba8'><b>{}</b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "wireplumber": {
+    "scroll-step": 5,
+    "max-volume": 150,
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} ・ {device_battery_percentage}%",
+    "tooltip-format": "Status ・ {status}\nController ・ {controller_alias} [{controller_address}]\n\nConnections ・ {num_connections}",
+    "tooltip-format-connected": " Connected device(s):\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "• {device_alias} [{device_address}]",
+    "tooltip-format-enumerate-connected-battery": "• {device_alias} [{device_address}] - 🔋 {device_battery_percentage}%",
+    "on-click": "blueman-manager"
+  },
+  "mpris": {
+    "format": "{status_icon}  {title}",
+    "format-stopped": "",
+    "tooltip-format": "Player ・ {player}\nTitle ・ {title}\nArtist ・ {artist}\nAlbum ・ {album}\n{position} ・ {length} ({status})",
+    "status-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "min-length": 10,
+    "max-length": 40
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "  {usage}% ・ {max_frequency}GHz",
+    "min-length": 16,
+    "max-length": 20
+  },
+  "network": {
+    "interval": 1,
+    "format": "{icon}  {bandwidthTotalBytes}",
+    "format-disconnected": "",
+    "format-icons": {
+      "wifi": "",
+      "ethernet": "",
+      "linked": ""
+    },
+    "tooltip-format": "Gateway ・ {gwaddr}\nIP ・ {ipaddr}\nIF ・ {ifname}\n  {bandwidthDownBytes} ・   {bandwidthUpBytes}",
+    "tooltip-format-wifi": "SSID ・ {essid}\nGateway ・ {gwaddr}\nIP ・ {ipaddr}\nIF ・ {ifname}\nFrequency ・ {frequency}GHz\nStrength ・ {signalStrength}% ({signaldBm}dBm)\n  {bandwidthDownBytes} ・   {bandwidthUpBytes}",
+    "min-length": 10,
+    "max-length": 20
+  },
+  "custom/gpu": {
+    "exec": "~/.config/waybar/.bin/gpu",
+    "return-type": "json", 
+    "interval": 0,
+    "signal": 11
+  },
+  "custom/memory": {
+    "exec": "~/.config/waybar/.bin/memory",
+    "return-type": "json",
+    "interval": 0,
+    "signal": 12
+  },
+  "custom/ping": {
+    "exec": "~/.config/waybar/.bin/ping",
+    "return-type": "json",
+    "interval": 0,
+    "signal": 13
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "  {}",
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/brightness#primary": {
+    "signal": 1,
+    "interval": 0,
+    "exec": "~/.config/waybar/scripts.d/brightness.sh --only 2",
+    "return-type": "json"
+  },
+  "custom/brightness#secondary": {
+    "signal": 1,
+    "interval": 0,
+    "exec": "~/.config/waybar/scripts.d/brightness.sh --only 3",
+    "return-type": "json"
+  },
+  "custom/updates": {
+    "signal": 10,
+    "interval": 0,
+    "escape": true,
+    "exec": "~/.config/waybar/.bin/updates",
+    "return-type": "json"
+  }
+}

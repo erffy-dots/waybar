@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+readonly BASE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/waybar"
+readonly PRIMARY_CONFIG="$BASE_CONFIG/waybar-hdmi/config.jsonc"
+readonly SECONDARY_CONFIG="$BASE_CONFIG/waybar-dp/config.jsonc"
+readonly STYLE="$BASE_CONFIG/style.css"
+
+# Kill all running waybar instances
+pkill -x waybar
+
+# Wait until all are killed
+while pgrep -x waybar > /dev/null; do
+    sleep 0.1
+done
+
+# Launch Waybar for HDMI-A-1
+nohup waybar -c $PRIMARY_CONFIG -s $STYLE >/dev/null 2>&1 &
+
+# Launch Waybar for DP-1
+nohup waybar -c $SECONDARY_CONFIG -s $STYLE >/dev/null 2>&1 &
